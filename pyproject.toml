@@ -1,0 +1,28 @@
+[project]
+name = "credit-model"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "xw", email = "2546656761@qq.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.4.6",
+    "optuna>=5.0.0",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.17.1",
+    "shap>=0.51.0",
+    "xgboost>=3.2.0",
+]
+
+[project.scripts]
+credit-model = "credit_model:main"
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
