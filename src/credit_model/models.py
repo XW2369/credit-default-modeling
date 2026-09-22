@@ -4,8 +4,6 @@ from __future__ import annotations
 import logging
 
 import numpy as np
-
-
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     average_precision_score,

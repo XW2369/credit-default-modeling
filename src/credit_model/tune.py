@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import logging
 
-import numpy as np
 import optuna
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold, cross_val_score

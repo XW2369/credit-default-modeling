@@ -5,6 +5,7 @@ from pathlib import Path
 
 import joblib
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import shap
@@ -17,7 +18,7 @@ plt.rcParams["axes.unicode_minus"] = False
 
 
 def run_explain() -> None:
-    Xtr, _, Xte, _ = load_train_test()
+    _, _, Xte, _ = load_train_test()
     model = joblib.load(Path("models/best_model.joblib"))
     explainer = shap.TreeExplainer(model)
     sample = Xte.sample(min(500, len(Xte)), random_state=42)

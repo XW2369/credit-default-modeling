@@ -43,6 +43,9 @@ def mcnemar_test(y_true, pred_a, pred_b) -> tuple[int, int, float]:
     b_ok = np.asarray(pred_b) == y_true
     b = int(np.sum(a_ok & ~b_ok))
     c = int(np.sum(~a_ok & b_ok))
+    if b + c == 0:
+        return b, c, 1.0
+
     p = float(stats.binomtest(min(b, c), b + c, 0.5).pvalue)
     return b, c, p
 

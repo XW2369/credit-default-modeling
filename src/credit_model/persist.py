@@ -5,8 +5,8 @@ import logging
 from pathlib import Path
 
 import joblib
-from xgboost import XGBClassifier
 from sklearn.metrics import roc_auc_score
+from xgboost import XGBClassifier
 
 from credit_model.data import load_train_test
 
