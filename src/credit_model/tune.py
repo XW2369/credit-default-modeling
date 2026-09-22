@@ -34,10 +34,10 @@ def objective(trial, X, y) -> float:
 
 def run_study(X, y, n_trials: int = 20) -> tuple[optuna.Study, pd.DataFrame]:
     """跑 n_trials 次试验，返回 study 与试验记录表。"""
-    # TODO study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler(seed=SEED))
+   
     # TODO study.optimize(lambda t: objective(t, X, y), n_trials=n_trials)
     optuna.logging.set_verbosity(optuna.logging.WARNING)
-    sampler = optua.samplers.TPESampler(seed=SEED)
+    sampler = optuna.samplers.TPESampler(seed=SEED)
     study = optuna.create_study(direction="maximize", sampler=sampler)
     study.optimize(lambda t: objective(t, X, y), n_trials=n_trials)
     tbl = study.trials_dataframe()
