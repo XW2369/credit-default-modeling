@@ -26,12 +26,18 @@ def load_train_test(
     p = Path(data_dir)
     train = pd.read_csv(p / "features.csv")
     test = pd.read_csv(p / "features_test.csv")
+    bad_train = int(train.isna().any(axis=1).sum())
+    bad_test = int(test.isna().any(axis=1).sum())
+    LOGGER.warning("drop all-NaN rows: train=%s test=%s", bad_train, bad_test)
+    train = train.dropna()
+    test = test.dropna()
     X_train = train.drop(columns=[TARGET])
     y_train = train[TARGET]
     X_test = test.drop(columns=[TARGET])
     y_test = test[TARGET]
     LOGGER.info("train=%s test=%s", train.shape, test.shape)
     return X_train, y_train, X_test, y_test
+
 
 
 
