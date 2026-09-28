@@ -1,7 +1,7 @@
 [project]
 name = "credit-model"
 version = "0.1.0"
-description = "Add your description here"
+description = "Credit default prediction: 4-model comparison with bootstrap AUC CI and McNemar test"
 authors = [
     { name = "xw", email = "2546656761@qq.com" }
 ]
